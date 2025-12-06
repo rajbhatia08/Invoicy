@@ -95,7 +95,7 @@ export default function InvoicesPage() {
     try {
       const res = await api.patch(`/api/invoices/${id}/status`, { status })
       setInvoices(prev =>
-        prev.map(inv => (inv.id === id ? res.data : inv))
+        prev.map(inv => (inv._id === id ? res.data : inv))
       )
     } catch (err) {
       console.error(err)
@@ -133,7 +133,7 @@ export default function InvoicesPage() {
           >
             <option value="">Select customer *</option>
             {customers.map(c => (
-              <option key={c.id} value={c.id}>
+              <option key={c._id} value={c._id}>
                 {c.name}
               </option>
             ))}
@@ -274,7 +274,7 @@ export default function InvoicesPage() {
                 </thead>
                 <tbody>
                   {invoices.map(inv => (
-                    <tr key={inv.id} className="border-b">
+                    <tr key={inv._id} className="border-b">
                       <td className="py-2 pr-3">{inv.invoiceNumber}</td>
                       <td className="py-2 pr-3">{inv.customerName}</td>
                       <td className="py-2 pr-3">{inv.issueDate}</td>
@@ -297,19 +297,19 @@ export default function InvoicesPage() {
                       <td className="py-2 pr-3 space-x-2">
                         <button
                           className="text-xs text-emerald-600"
-                          onClick={() => updateStatus(inv.id, 'PAID')}
+                          onClick={() => updateStatus(inv._id, 'PAID')}
                         >
                           Mark Paid
                         </button>
                         <button
                           className="text-xs text-amber-600"
-                          onClick={() => updateStatus(inv.id, 'UNPAID')}
+                          onClick={() => updateStatus(inv._id, 'UNPAID')}
                         >
                           Mark Unpaid
                         </button>
                         <button
                           className="text-xs text-red-600"
-                          onClick={() => updateStatus(inv.id, 'OVERDUE')}
+                          onClick={() => updateStatus(inv._id, 'OVERDUE')}
                         >
                           Mark Overdue
                         </button>

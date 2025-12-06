@@ -36,7 +36,7 @@ export default function CustomersPage() {
       if (editingId) {
         const res = await api.put(`/api/customers/${editingId}`, form)
         setCustomers(prev =>
-          prev.map(c => (c.id === editingId ? res.data : c))
+          prev.map(c => (c._id === editingId ? res.data : c))
         )
       } else {
         const res = await api.post('/api/customers', form)
@@ -51,7 +51,7 @@ export default function CustomersPage() {
   }
 
   const handleEdit = (customer) => {
-    setEditingId(customer.id)
+    setEditingId(customer._id)
     setForm({
       name: customer.name || '',
       email: customer.email || '',
@@ -64,7 +64,7 @@ export default function CustomersPage() {
     if (!window.confirm('Delete this customer?')) return
     try {
       await api.delete(`/api/customers/${id}`)
-      setCustomers(prev => prev.filter(c => c.id !== id))
+      setCustomers(prev => prev.filter(c => c._id !== id))
     } catch (err) {
       console.error(err)
       setError('Failed to delete customer')
@@ -161,7 +161,7 @@ export default function CustomersPage() {
                 </thead>
                 <tbody>
                   {customers.map(c => (
-                    <tr key={c.id} className="border-b">
+                    <tr key={c._id} className="border-b">
                       <td className="py-2 pr-4">{c.name}</td>
                       <td className="py-2 pr-4">{c.email}</td>
                       <td className="py-2 pr-4">{c.phone}</td>
@@ -174,7 +174,7 @@ export default function CustomersPage() {
                         </button>
                         <button
                           className="text-red-600 text-xs"
-                          onClick={() => handleDelete(c.id)}
+                          onClick={() => handleDelete(c._id)}
                         >
                           Delete
                         </button>
