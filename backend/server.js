@@ -47,7 +47,7 @@ const invoiceItemSchema = new Schema(
 const invoiceSchema = new Schema(
   {
     customer: { type: Schema.Types.ObjectId, ref: 'Customer', required: true },
-    invoiceNumber: { type: String, required: true, unique: true },
+    invoiceNumber: { type: String, required: true },
     issueDate: { type: String, required: true }, // YYYY-MM-DD
     dueDate: { type: String, required: true },
     items: [invoiceItemSchema],
@@ -88,7 +88,6 @@ function updateInvoiceStatus(invoice) {
   }
 }
 
-// Customers
 // Customers
 app.get('/api/customers', async (req, res) => {
   try {
@@ -153,7 +152,6 @@ app.delete('/api/customers/:id', async (req, res) => {
 })
 
 
-// Invoices
 // Invoices
 app.get('/api/invoices', async (req, res) => {
   try {
