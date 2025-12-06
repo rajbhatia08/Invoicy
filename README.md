@@ -1,7 +1,7 @@
 
-# Invoice & Customer Manager
+# Invoicy: Invoice & Customer Manager
 
-This is a small full-stack project built with **React, Tailwind CSS, Node.js and Express**.
+This is a full-stack project built with **React, Tailwind CSS, Node.js and Express**.
 
 It lets a small business:
 
@@ -15,7 +15,6 @@ It lets a small business:
   - Monthly revenue chart
 
 The backend uses a simple in-memory data store so it is easy to run without any database setup.  
-You can later plug in MongoDB if you want to extend it.
 
 ---
 
@@ -23,7 +22,7 @@ You can later plug in MongoDB if you want to extend it.
 
 - Frontend: React, Vite, Tailwind CSS, React Router, Axios, Chart.js
 - Backend: Node.js, Express, CORS
-- Data: In-memory JS arrays (can be swapped with MongoDB)
+- Data: In-memory JS arrays 
 
 ---
 
