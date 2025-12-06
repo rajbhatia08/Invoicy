@@ -6,8 +6,8 @@ import InvoicesPage from './pages/InvoicesPage.jsx'
 
 function App() {
   return (
-    <div className="min-h-screen flex bg-slate-100">
-      <aside className="w-64 bg-slate-900 text-slate-50 flex flex-col">
+    <div className="min-h-screen flex flex-col md:flex-row bg-slate-100">
+      <aside className="w-full md:w-64 bg-slate-900 text-slate-50 flex flex-col">
         <div className="px-6 py-4 text-xl font-semibold border-b border-slate-800">
           Invoicy
         </div>
